@@ -9,11 +9,11 @@ class World:
     # Initial world settings
     def __init__(self):
         self.name = 'Charles'
-        self.size = 50
+        self.size = 100
         self.height = self.size
-        self.width = self.size*4
-        self.max_cars = 500
-        self.max_roads = 3
+        self.width = self.size*3
+        self.max_cars = 20
+        self.max_roads = 2
         self.run_speed = .00
         self.cars = []
         self.roads = 0
@@ -34,7 +34,7 @@ class World:
             world = Car.move_cars(world)
             world = Traffic_Light.create(world)
             world = Traffic_Light.light_changer(world)
-            World.display(world)
+            # World.display(world)
             sleep(world.run_speed)
     
     # Renders the world to the console
@@ -53,7 +53,8 @@ class World:
                 display_string += '\n'
                 x = 0
                 y+=1
-        print(display_string)
+        # print(display_string)
+        return display_string
 
 
 #    [-----SPACES-----]
@@ -100,4 +101,4 @@ def clear():
     # for mac and linux(here, os.name is 'posix')
     else:
         _ = system('clear')
-World.run()
+# World.run()
